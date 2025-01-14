@@ -1,0 +1,36 @@
+.user-info{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #dddddd35;
+    position: relative;
+
+    .user{
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        img{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+    }
+
+    .icons{
+        .icon{
+            cursor: pointer;
+            margin-top: 3px;
+            font-size: 30px;
+        }
+    }
+
+    .options-component{
+        position: absolute; 
+        z-index: 10;
+        top: 80px;
+        right: 10px;
+    }
+}

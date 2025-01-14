@@ -1,0 +1,205 @@
+.callPage-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    align-items: center;
+    position: relative;
+
+    .user-info{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        border: none;
+        margin-top: 100px;
+        z-index: 10;
+        
+        div{
+            position: relative;
+            width: 170px;
+            height: 170px;
+            border-radius: 50%;
+
+            img{
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            &.inCall::after{ 
+                    content: "";
+                    position: absolute;
+                    top: -3px;
+                    left: -3px;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    border: 3px solid var(--main-color);
+                    animation: expandBorder 1.5s infinite ease-in-out;
+            }
+        }
+        
+        h2{
+            font-weight: bold;
+        }
+
+        p{
+            color: var(--secondary-grey);
+            font-size: medium;
+        }
+
+        .call-duration{
+            text-align: center; 
+        }
+    }
+    
+
+    .btn-section-callPage{
+        display: flex;
+        align-items: center;
+        margin-bottom: 50px;
+        gap: 20px;
+        z-index: 10;
+        position: absolute;
+        bottom: 0;
+
+        button{
+            color: #fff;
+            background-color: #dddddd35;
+            width: 40px;
+            height: 40px;
+
+            &.call{
+                color: limegreen;
+            }
+
+            &.callEnd{
+                color: red;
+            }
+
+            &.disabled-btn-status{
+                cursor: not-allowed;
+                background-color: #dddddd10;
+                color: #ffffff7a;
+
+                &:hover{
+                    background-color: #dddddd10;
+                }
+
+                &:active{
+                    animation: none;
+                }
+            }
+
+            &:hover{
+                background-color: #dddddd71;
+            }
+
+            .icon-btn{
+                margin-top: 3px;
+            }
+        }
+    }
+
+    .videos-section{
+        width: 80vw;
+        height: 90vh;
+        border-radius: 10px;
+        position: absolute;
+        z-index: 5;
+
+        .remote-video{
+            position: relative;
+            margin: 0 auto;
+            width: 550px;
+            height: 90vh;
+            background-color: rgba(58, 57, 57, 0.322);
+            display: flex;
+
+            video{
+                width: 550px;
+                margin-bottom: 100px;
+            }
+        }
+
+        .local-video{
+            position: absolute;
+            bottom: 65px;
+            right: 10px;
+            width: 300px;
+            height: 25vh;
+            border-radius: 10px;
+
+            video{
+                width: 300px;
+                border-radius: 10px;
+            }
+        }
+    }
+}
+
+@keyframes expandBorder {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1.2); 
+      opacity: 0; 
+    }
+}
+
+@media(max-width: 1060px){
+    .callPage-container{
+        .videos-section{
+            width: 95vw;
+            height: 95vh;
+
+            .remote-video{
+                height: 95vh;
+    
+                video{
+                    width: 550px;
+                    margin-bottom: 150px;
+                }
+            }
+
+            .local-video{
+                width: 200px;
+                bottom: 0px;
+    
+                video{
+                    width: 200px;
+                }
+            }
+        }
+    } 
+}
+
+@media(max-width: 600px){
+    .callPage-container{
+        .videos-section{
+
+            .remote-video{
+                width: 450px;
+    
+                video{
+                    width: 450px;
+                    margin-bottom: 20px;
+                }
+            }
+
+            .local-video{
+                width: 150px;
+                left: 40px;
+                top: 20px;
+    
+                video{
+                    width: 150px;
+                }
+            }
+        }
+    } 
+}
+  

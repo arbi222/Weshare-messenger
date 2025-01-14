@@ -1,0 +1,96 @@
+.addUser{
+    width: max-content;
+    height: max-content;
+    padding: 50px;
+    background-color: rgb(17, 25, 40);
+    border-radius: 10px;
+    border: 1px solid var(--main-color);
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    form{
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+
+        input{
+            padding: 12px;
+            border-radius: 10px;
+            font-size: large;
+            border: none;
+            outline: none;
+            background-color: var(--secondary-grey);
+        }
+
+        button{
+            padding: 12px;
+            border-radius: 10px;
+            border: none;
+            color: white;
+            background-color: var(--main-color);
+            cursor: pointer;
+        }
+    }
+
+    .scroller{
+        margin-top: 30px;
+        padding-right: 5px;
+        overflow-y: auto;
+        height: auto;
+        max-height: 270px;
+        width: 355px;
+
+        &::-webkit-scrollbar{
+            width: 7px;
+            background-color: #00bdda3d;
+        }
+        
+        &::-webkit-scrollbar-thumb{
+            background-color: var(--main-color);
+            border-radius: 5px;
+        }
+
+        .user{
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 15px;
+            padding: 10px;
+            background-color: rgb(23, 37, 65);
+
+            &:last-child{
+                margin-bottom: 0;
+            }
+    
+            .detail{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                
+                img{
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+            }
+    
+            button{
+                padding: 10px;
+                border-radius: 10px;
+                border: none;
+                color: white;
+                background-color: var(--main-color);
+                cursor: pointer;
+            }
+        }
+    }
+
+    
+}
