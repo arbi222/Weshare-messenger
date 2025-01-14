@@ -129,6 +129,7 @@ export const useUserStore = create((set, get) => ({
                     socket.disconnect();
                 }
                 set({currentUser: null, isLoading: false, accessToken: null, socket: null});
+                Cookies.remove("accessToken");
             }
         }
         catch(err){
