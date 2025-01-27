@@ -537,6 +537,119 @@
     } 
 }
 
+@media(max-width: 515px){
+    .chat, .chat-hiding, .chat-hiding2{
+        .top{
+            justify-content: flex-start;
+            gap: 50px;
+
+            .top-back-btn-section{
+                gap: 10px;
+                margin-left: 10px;
+            }
+
+            .user{
+                gap: 10px;
+    
+                img{
+                    width: 45px;
+                    height: 45px;
+                }
+    
+                .texts{
+                    gap: 2px;
+    
+                    span{
+                        font-size: 15px;
+                    }
+                }
+            }
+    
+            .icons{
+                gap: 10px;
+            }
+        }
+
+        .center{
+            padding: 20px;
+
+            .message{
+                max-width: 65%;
+                
+                &.own{
+                    margin-right: 40px;
+                    
+                    .texts{
+                        video{
+                            width: 300px;
+                        }
+
+                        p{
+                            width: 300px;
+
+                            .call-msg-div{
+                                width: 280px;
+                            }
+                        }
+                    }
+    
+                    .delete-img-chat{
+                        position: absolute;
+                        right: 8px;
+                        top: 8px;
+                    }
+    
+                    .delete-file-chat{
+                        left: -40px;
+                        top: 10px;
+                    }
+    
+                }
+    
+                .texts{
+                    flex: 1;
+    
+                    img{
+                        width: 100%;
+                        height: auto;
+                    }
+    
+                    .video-message{
+                        video{
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
+                }
+            }
+        }
+
+        .bottom{
+            form{
+                padding: 20px;
+                justify-content: space-between;
+                gap: 3px;
+
+                .icons{
+                    gap: 8px;
+                }
+    
+                textarea{
+                    flex: 0.9;
+                    padding: 5px;
+                    font-size: 14px;
+                }
+        
+                .emoji{
+                    .picker{
+                        left: -220px;
+                    }
+                }
+            }
+        }
+    }
+}
+
 @keyframes pulse{
     0% {
         opacity: 1;
