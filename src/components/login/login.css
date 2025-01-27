@@ -150,3 +150,17 @@
       }
   }
 }
+
+@media(max-width: 500px){
+    .login{
+      .main-class-item{
+          form{
+              button{
+                  &.create-account{
+                      margin: 0px auto 50px;
+                  }
+              }
+          }
+        }
+    }
+}
