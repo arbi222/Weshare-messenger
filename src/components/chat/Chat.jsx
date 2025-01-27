@@ -1015,6 +1015,7 @@ const Chat = ({openSearch, blockedState, setConversations,
                         {isRecording ?  
                             <p className="recording">Recording... {recordingTime} seconds</p>
                         : 
+                        <>
                             <textarea type="text"
                                     value={text}
                                     ref={textAreaRef}
@@ -1023,22 +1024,24 @@ const Chat = ({openSearch, blockedState, setConversations,
                                     onChange={e => setText(e.target.value)}
                                     onSelect={(e) => setCursorPosition(e.target.selectionStart)}
                             />
-                        }
-                        <div className="emoji" ref={emoji}>
-                            <button type="button" className="styled-btn" title="Choose an emoji">
-                                <EmojiEmotions className="icon" onClick={() => setOpenEmoji(!openEmoji)}/>
-                            </button>
-                            <div className="picker">
-                                <EmojiPicker open={openEmoji} 
-                                            emojiStyle='facebook' 
-                                            skinTonesDisabled 
-                                            searchDisabled 
-                                            width={300} 
-                                            height={300}
-                                            onEmojiClick={handleEmoji} 
-                                />
+
+                            <div className="emoji" ref={emoji}>
+                                <button type="button" className="styled-btn" title="Choose an emoji">
+                                    <EmojiEmotions className="icon" onClick={() => setOpenEmoji(!openEmoji)}/>
+                                </button>
+                                <div className="picker">
+                                    <EmojiPicker open={openEmoji} 
+                                                emojiStyle='facebook' 
+                                                skinTonesDisabled 
+                                                searchDisabled 
+                                                width={300} 
+                                                height={300}
+                                                onEmojiClick={handleEmoji} 
+                                    />
+                                </div>
                             </div>
-                        </div>
+                        </>
+                        }
                         {isRecording ? 
                             <button className="sendButton" 
                                     title="Send voice clip"
