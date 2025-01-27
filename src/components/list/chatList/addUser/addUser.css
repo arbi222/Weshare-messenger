@@ -92,5 +92,17 @@
         }
     }
 
-    
+}
+
+@media(max-width: 504px){
+    .addUser{
+      padding: 20px;
+
+      form{
+        input{
+            padding: 8px;
+            font-size: medium;
+        }
+      }
+    }
 }
