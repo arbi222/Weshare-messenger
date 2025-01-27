@@ -955,21 +955,25 @@ const Chat = ({openSearch, blockedState, setConversations,
                 {!blockOrBlocked ? 
                     <form onSubmit={handleSendMessage}>
                         <div className="icons" ref={gifButton}>
-                            <label htmlFor="file" className="styled-btn">
-                                <AddPhotoAlternate titleAccess="Attach a file" className="icon"/>
-                            </label>
-                            <input type="file" 
-                                    id="file" 
-                                    className="hide" 
-                                    accept="image/*,.mp4,.mov,.avi,.mkv,.pdf,.txt,.doc,.docx,.ppt,.pptx,.xls,.xlsx"
-                                    onChange={handleFiles}
-                            />
-                            <button type="button" 
-                                    className="styled-btn" 
-                                    title="Choose a gif" 
-                                    onClick={() => setOpenGifs(!openGifs)}>
-                                <Gif className="icon" style={{fontSize: "25px"}}/>
-                            </button>
+                            {!isRecording && 
+                            <>
+                                <label htmlFor="file" className="styled-btn">
+                                    <AddPhotoAlternate titleAccess="Attach a file" className="icon"/>
+                                </label>
+                                <input type="file" 
+                                        id="file" 
+                                        className="hide" 
+                                        accept="image/*,.mp4,.mov,.avi,.mkv,.pdf,.txt,.doc,.docx,.ppt,.pptx,.xls,.xlsx"
+                                        onChange={handleFiles}
+                                />
+                                <button type="button" 
+                                        className="styled-btn" 
+                                        title="Choose a gif" 
+                                        onClick={() => setOpenGifs(!openGifs)}>
+                                    <Gif className="icon" style={{fontSize: "25px"}}/>
+                                </button>
+                            </>
+                            }
                             {openGifs &&
                                 <div className="gif-picker">
                                     <div className="search-bar">
