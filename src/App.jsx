@@ -123,7 +123,8 @@ const App = () => {
 
 
   // calling functionality
-  const [calleeId, setCalleeId] = useState(null);
+  const calleeId = useRef(null); // better than usestate for webrtc connections
+  // const [calleeId, setCalleeId] = useState(null);
   const [callType, setCallType] = useState("");
   const [weCalling, setWeCalling] = useState(false);
   const [chatId, setChatId] = useState(null);
@@ -172,7 +173,8 @@ const App = () => {
       })
       return;
     }
-    setCalleeId(data.callerId);
+    calleeId.current = data.callerId;
+    // setCalleeId(data.callerId);
     setRemoteOffer(data.offer);
     setCallType(data.callType);
     setChatId(data.chatId);
@@ -219,7 +221,7 @@ const App = () => {
   };
 
   const handleCallEnded = (data) => {
-      if (data.senderId === calleeId){
+      if (data.senderId === calleeId?.current){
         if (callRingingRef.current){
           callRingingRef.current.pause()
           callRingingRef.current.currentTime = 0;
@@ -300,7 +302,7 @@ const App = () => {
       if (isInCallRef.current) {
         socket.emit("endCall", {
           senderId: currentUser._id,
-          receiverId: calleeId,
+          receiverId: calleeId?.current,
           status: "callEnded"
         });
       }
@@ -311,7 +313,7 @@ const App = () => {
     return () => {
       window.removeEventListener("beforeunload", handleBeforeUnload);
     };
-  }, [calleeId]);
+  }, [calleeId?.current]);
 
   useEffect(() => {
       if (incomingCall){
@@ -353,7 +355,7 @@ const App = () => {
         await pc.setLocalDescription(answer);
         if (answer){
           socket.emit("sendAnswer", {
-            receiverId: calleeId,
+            receiverId: calleeId?.current,
             answer: answer
           })
         }
@@ -361,7 +363,7 @@ const App = () => {
         pc.onicecandidate = (event) => {
           if (event.candidate){
             socket.emit("sendIceCandidate", {
-              receiverId: calleeId,
+              receiverId: calleeId?.current,
               candidate: event.candidate
             })
           }
@@ -389,13 +391,14 @@ const App = () => {
     setIncomingCall(false);
 
     socket.emit("endCall", {
-      receiverId: calleeId,
+      receiverId: calleeId?.current,
       status: "declined"
     });
   }
 
   const handleCall = async (callType, id, chatId) => {
-    setCalleeId(id);
+    calleeId.current = id;
+    // setCalleeId(id);
     setCallType(callType);
     setChatId(chatId);
     
@@ -463,7 +466,7 @@ const App = () => {
                   weCalling={weCalling}
                   setWeCalling={setWeCalling}
                   callType={callType}
-                  calleeId={calleeId}
+                  calleeId={calleeId.current}
                   isCallAccepted={isCallAccepted}
                   setIsCallAccepted={setIsCallAccepted}
                   notCallingStatus={notCallingStatus}
@@ -512,7 +515,7 @@ const App = () => {
                   />
                   {incomingCall && 
                       <IncomingCallPopUp 
-                        calleeId={calleeId}
+                        calleeId={calleeId.current}
                         callType={callType}
                         handleAccept={handleAccept}
                         handleDecline={handleDecline}
