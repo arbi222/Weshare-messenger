@@ -5,6 +5,8 @@
 🌐 **Live Demo:** [wesharemessenger.onrender.com](https://wesharemessenger.onrender.com)  
 🔧 **Backend Repo:** [Weshare-server](https://github.com/arbi222/Weshare-server)
 
+💬 **Social Media App:** [Weshare-client](https://github.com/arbi222/Weshare-client)
+
 ---
 
 ## What Is WeShare Messenger?
